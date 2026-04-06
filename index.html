@@ -2282,18 +2282,12 @@
       }
     }
 
-    // Attach payment handler to all purchase buttons
-    document.querySelectorAll('.btn-primary, .btn-precio').forEach(btn => {
-      // Only attach to buttons that link to #precio or are the actual purchase buttons
-      const href = btn.getAttribute('href');
-      if (href && href !== '#precio' && href !== '#') return;
-      if (btn.classList.contains('btn-precio') || href === '#') {
-        btn.removeAttribute('href');
-        btn.addEventListener('click', (e) => {
-          e.preventDefault();
-          initPayment(btn);
-        });
-      }
+    // Attach payment handler to purchase buttons
+    document.querySelectorAll('.btn-precio').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        initPayment(btn);
+      });
     });
   </script>
 </body>
