@@ -510,119 +510,156 @@
       color: var(--text-muted); line-height: 1.7; margin-top: 1rem;
     }
 
-    /* ─── SPEAKERS MOSAIC ────────────────────────────── */
+    /* ─── SPEAKERS — PORTRAIT CARDS ─────────────────── */
     .sp-mosaic {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 1rem;
+      gap: 1.2rem;
     }
-    .sp-hero-main { grid-column: 1 / 3; height: 440px; }
-    .sp-hero-side { grid-column: 3 / 4; height: 440px; }
-    .sp-trio {
-      grid-column: 1 / -1;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1rem;
-    }
-    .sp-card-trio { height: 400px; }
-    .sp-duo { grid-column: 1 / -1; height: 420px; }
-    .sp-duo img { object-position: center 25%; }
 
-    /* Base card */
+    /* ── Base card: foto arriba, info abajo ── */
     .sp-card {
-      position: relative;
-      border-radius: 14px;
+      border-radius: 16px;
       overflow: hidden;
-      background: #1a0e2e;
-      cursor: default;
+      background: #1c1b1b;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.4s var(--ease-out), box-shadow 0.4s;
     }
-    .sp-card img {
-      width: 100%; height: 100%;
-      object-fit: cover; object-position: top center;
-      display: block;
-      transition: transform 0.7s cubic-bezier(0.25,0.46,0.45,0.94);
+    .sp-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 24px 60px rgba(0,0,0,0.6);
     }
-    .sp-card:hover img { transform: scale(1.05); }
 
-    /* Gradient overlay */
-    .sp-card-overlay {
-      position: absolute; inset: 0;
-      background: linear-gradient(
-        to top,
-        rgba(10,7,18,0.97) 0%,
-        rgba(10,7,18,0.72) 38%,
-        rgba(10,7,18,0.18) 65%,
-        transparent 100%
-      );
-      display: flex; flex-direction: column;
-      justify-content: flex-end;
-      padding: clamp(1.2rem, 2.5vw, 1.8rem);
-      transition: background 0.4s;
+    /* Foto como sección propia */
+    .sp-card-photo {
+      overflow: hidden;
+      flex-shrink: 0;
+      background: #0e0c18;
+      position: relative;
     }
-    .sp-card:hover .sp-card-overlay {
-      background: linear-gradient(
-        to top,
-        rgba(10,7,18,0.99) 0%,
-        rgba(10,7,18,0.82) 48%,
-        rgba(10,7,18,0.25) 72%,
-        transparent 100%
-      );
+    .sp-card-photo::after {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, transparent 0%, #A855F7 40%, #e6c364 60%, transparent 100%);
+      opacity: 0.7;
+    }
+    .sp-card-photo img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      display: block;
+      transition: transform 0.7s var(--ease-out);
+    }
+    .sp-card:hover .sp-card-photo img { transform: scale(1.04); }
+
+    /* Panel de info */
+    .sp-card-info {
+      padding: 1.5rem 1.8rem 2rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
     }
 
     /* Tag pill */
     .sp-tag {
       display: inline-block;
-      font-size: 0.6rem; font-weight: 700; letter-spacing: 0.22em;
+      font-size: 0.58rem; font-weight: 700; letter-spacing: 0.22em;
       text-transform: uppercase;
       color: var(--amber);
       background: rgba(192,132,252,0.1);
       border: 1px solid rgba(192,132,252,0.28);
       border-radius: 4px;
-      padding: 0.22em 0.65em;
-      margin-bottom: 0.55rem;
+      padding: 0.2em 0.65em;
+      margin-bottom: 0.4rem;
       width: fit-content;
     }
     .sp-card-name {
       font-family: var(--font-sans);
-      font-size: clamp(0.95rem, 1.8vw, 1.2rem);
+      font-size: clamp(0.92rem, 1.4vw, 1.1rem);
       font-weight: 800; letter-spacing: 0.07em;
       text-transform: uppercase;
       background: linear-gradient(90deg, #e6c364 0%, #c9a84c 100%);
       -webkit-background-clip: text; -webkit-text-fill-color: transparent;
       background-clip: text;
-      line-height: 1.2; margin-bottom: 0.3rem;
+      line-height: 1.2; margin-bottom: 0.2rem;
     }
     .sp-card-role {
-      font-size: 0.8rem; font-weight: 600;
-      color: rgba(229,226,225,0.72);
-      line-height: 1.4; margin-bottom: 0.55rem;
+      font-size: 0.78rem; font-weight: 600; font-style: italic;
+      color: var(--amber); line-height: 1.4; margin-bottom: 0.5rem;
     }
     .sp-card-bio {
-      font-size: 0.82rem;
-      color: rgba(207,194,214,0.82);
-      line-height: 1.68;
-      display: -webkit-box;
-      -webkit-line-clamp: 4;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
+      font-size: 0.84rem;
+      color: var(--text-muted);
+      line-height: 1.72;
     }
-    .sp-hero-main .sp-card-bio,
-    .sp-duo .sp-card-bio { -webkit-line-clamp: 5; }
+    .sp-card-bullets {
+      display: flex; flex-direction: column; gap: 0.55rem;
+      margin-top: 0.8rem;
+    }
+    .sp-card-bullet {
+      display: flex; gap: 0.6rem; align-items: flex-start;
+      font-size: 0.83rem; color: var(--text-muted); line-height: 1.5;
+    }
+    .sp-card-bullet-icon { color: #22c55e; flex-shrink: 0; }
+
+    /* ── HERO ROW: Moyn+Ehsaan (2/3) + Nick (1/3) horizontal ── */
+    .sp-hero-main {
+      grid-column: 1 / 3;
+      flex-direction: row;
+    }
+    .sp-hero-main .sp-card-photo {
+      width: 46%; flex-shrink: 0; min-height: 380px;
+    }
+    .sp-hero-main .sp-card-photo::after { display: none; }
+    .sp-hero-main .sp-card-info {
+      justify-content: center;
+      padding: clamp(1.5rem, 3vw, 2.5rem) clamp(1.5rem, 3vw, 2.5rem);
+    }
+    .sp-hero-side .sp-card-photo { height: 290px; }
+
+    /* ── TRIO ROW: 3 cols ── */
+    .sp-trio {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.2rem;
+    }
+    .sp-card-trio .sp-card-photo { height: 280px; }
+    .sp-card-trio .sp-card-info { padding: 1.3rem 1.5rem 1.6rem; }
+
+    /* ── DUO ROW: ancho completo, horizontal ── */
+    .sp-duo {
+      grid-column: 1 / -1;
+      flex-direction: row;
+    }
+    .sp-duo .sp-card-photo {
+      width: 38%; flex-shrink: 0; min-height: 320px;
+    }
+    .sp-duo .sp-card-photo img { object-position: center 15%; }
+    .sp-duo .sp-card-info {
+      justify-content: center;
+      padding: clamp(1.5rem, 3vw, 2.5rem) clamp(1.5rem, 4vw, 3rem);
+    }
 
     /* Responsive */
-    @media (max-width: 820px) {
+    @media (max-width: 900px) {
       .sp-mosaic { grid-template-columns: 1fr 1fr; }
-      .sp-hero-main { grid-column: 1 / -1; height: 360px; }
-      .sp-hero-side { grid-column: 1 / 2; height: 320px; }
-      .sp-duo { grid-column: 1 / -1; height: 360px; }
+      .sp-hero-main { grid-column: 1 / -1; }
+      .sp-hero-main .sp-card-photo { min-height: 300px; }
+      .sp-hero-side { grid-column: auto; }
       .sp-trio { grid-template-columns: 1fr 1fr; }
-      .sp-card-trio { height: 340px; }
-      .sp-card-trio:last-child { grid-column: 1 / -1; height: 300px; }
+      .sp-card-trio:last-child { grid-column: 1 / -1; }
+      .sp-card-trio:last-child .sp-card-photo { height: 240px; }
     }
-    @media (max-width: 520px) {
+    @media (max-width: 600px) {
       .sp-mosaic, .sp-trio { grid-template-columns: 1fr; }
-      .sp-hero-main, .sp-hero-side, .sp-duo { grid-column: auto; height: 320px; }
-      .sp-card-trio, .sp-card-trio:last-child { grid-column: auto; height: 300px; }
+      .sp-hero-main, .sp-duo { flex-direction: column; }
+      .sp-hero-main .sp-card-photo,
+      .sp-duo .sp-card-photo { width: 100%; min-height: 260px; }
+      .sp-card-trio:last-child { grid-column: auto; }
+      .sp-hero-side .sp-card-photo { height: 260px; }
     }
 
     /* ─── TESTIMONIOS ────────────────────────────────────────────── */
@@ -1299,33 +1336,39 @@
     <div class="sp-mosaic">
 
       <!-- ── HERO ROW ── -->
-      <!-- Moyn & Ehsaan: 2/3 width hero -->
+      <!-- Moyn & Ehsaan: horizontal, 2/3 ancho -->
       <div class="sp-card sp-hero-main reveal">
-        <img src="speakers/moyn-ehsaan.png" alt="Moyn y Ehsaan Islam">
-        <div class="sp-card-overlay">
+        <div class="sp-card-photo">
+          <img src="speakers/moyn-ehsaan.png" alt="Moyn y Ehsaan Islam">
+        </div>
+        <div class="sp-card-info">
           <div class="sp-tag">Keynote · Be Global</div>
           <div class="sp-card-name">Moyn &amp; Ehsaan Islam</div>
           <div class="sp-card-role">Co-Fundadores de Be · Visionarios del Network Marketing Global</div>
-          <p class="sp-card-bio">Arquitectos de uno de los movimientos de afiliados más grandes del mundo. En IMPARABLES 2026, revelarán la visión que mueve millones y el futuro de SageMaster como motor de riqueza para sus afiliados.</p>
+          <p class="sp-card-bio">Los hermanos Islam son los arquitectos de uno de los movimientos de afiliados más grandes del mundo. Moyn Islam, CEO y Co-Fundador de Be, ha construido una red de miles de afiliados independientes en múltiples continentes. Junto con su hermano Ehsaan, han revolucionado la forma en que las personas generan ingresos desde casa. En IMPARABLES 2026 compartirán la visión que mueve millones y el futuro de SageMaster como motor de riqueza.</p>
         </div>
       </div>
 
-      <!-- Nick: 1/3 side hero -->
+      <!-- Nick: vertical, 1/3 ancho -->
       <div class="sp-card sp-hero-side reveal reveal-delay-1">
-        <img src="speakers/nick-santonastasso.png" alt="Nick Santonastasso">
-        <div class="sp-card-overlay">
+        <div class="sp-card-photo">
+          <img src="speakers/nick-santonastasso.png" alt="Nick Santonastasso">
+        </div>
+        <div class="sp-card-info">
           <div class="sp-tag">Keynote · Alto Rendimiento</div>
           <div class="sp-card-name">Nick Santonastasso</div>
-          <div class="sp-card-role">Conferencista Mundial · Autor · Coach</div>
-          <p class="sp-card-bio">Nació sin piernas y con un solo brazo parcial. Hoy inspira a millones junto a Tony Robbins. Vendrá a remover tus límites desde adentro.</p>
+          <div class="sp-card-role">Conferencista Mundial · Autor · Coach de Alto Rendimiento</div>
+          <p class="sp-card-bio">Nació con el síndrome de Hanhart — sin piernas y con un solo brazo parcial. Lo que para el mundo era una limitación, Nick lo convirtió en su mayor fortaleza. Ha compartido escenario con Tony Robbins y Gary Vaynerchuk. En IMPARABLES 2026, vendrá a remover tus límites desde adentro.</p>
         </div>
       </div>
 
       <!-- ── TRIO ROW ── -->
       <div class="sp-trio reveal reveal-delay-2">
         <div class="sp-card sp-card-trio">
-          <img src="speakers/giorgio-trabaldo.png" alt="Giorgio Trabaldo">
-          <div class="sp-card-overlay">
+          <div class="sp-card-photo">
+            <img src="speakers/giorgio-trabaldo.png" alt="Giorgio Trabaldo">
+          </div>
+          <div class="sp-card-info">
             <div class="sp-tag">Italia · Multinivel</div>
             <div class="sp-card-name">Giorgio Trabaldo</div>
             <div class="sp-card-role">Líder Multinivel Internacional</div>
@@ -1333,17 +1376,21 @@
           </div>
         </div>
         <div class="sp-card sp-card-trio">
-          <img src="speakers/charlie-villarreal.png" alt="Charlie Villarreal">
-          <div class="sp-card-overlay">
+          <div class="sp-card-photo">
+            <img src="speakers/charlie-villarreal.png" alt="Charlie Villarreal">
+          </div>
+          <div class="sp-card-info">
             <div class="sp-tag">LATAM · Liderazgo</div>
             <div class="sp-card-name">Charlie Villarreal</div>
             <div class="sp-card-role">Emprendedor Digital · Liderazgo y Mentalidad</div>
-            <p class="sp-card-bio">Referente en mentalidad emprendedora y network marketing en Latinoamérica. Inspira con su historia personal y equipa a su equipo con estrategias que realmente funcionan en el mercado hispano.</p>
+            <p class="sp-card-bio">Referente en mentalidad emprendedora y network marketing en Latinoamérica. Inspira con su historia personal y equipa con estrategias que realmente funcionan en el mercado hispano.</p>
           </div>
         </div>
         <div class="sp-card sp-card-trio">
-          <img src="speakers/eduardo-otero.png" alt="Eduardo Otero">
-          <div class="sp-card-overlay">
+          <div class="sp-card-photo">
+            <img src="speakers/eduardo-otero.png" alt="Eduardo Otero">
+          </div>
+          <div class="sp-card-info">
             <div class="sp-tag">Finanzas · Negocios</div>
             <div class="sp-card-name">Eduardo Otero</div>
             <div class="sp-card-role">Estratega de Negocios · Educación Financiera</div>
@@ -1354,12 +1401,28 @@
 
       <!-- ── DUO ROW ── -->
       <div class="sp-card sp-duo reveal reveal-delay-3">
-        <img src="speakers/manuel-alexandra.png" alt="Manuel Zabaleta y Alexandra Cortes">
-        <div class="sp-card-overlay">
+        <div class="sp-card-photo">
+          <img src="speakers/manuel-alexandra.png" alt="Manuel Zabaleta y Alexandra Cortes">
+        </div>
+        <div class="sp-card-info">
           <div class="sp-tag">Colombia · Sus Anfitriones</div>
           <div class="sp-card-name">Manuel Zabaleta &amp; Alexandra Cortes</div>
-          <div class="sp-card-role">Ingenieros · Empresarios · Pioneros de Be en Colombia · 6+ años en la industria</div>
-          <p class="sp-card-bio">Lograron pagar más de $50,000 USD en deudas tras una quiebra financiera en 2019 — en menos de dos años. Hoy son pioneros de Be en Colombia y referentes en educación financiera, liderazgo y negocios en red, habiendo guiado a miles de familias a lograr libertad de tiempo, dinero y decisión.</p>
+          <div class="sp-card-role">Ingenieros · Empresarios · Pioneros de Be en Colombia</div>
+          <p class="sp-card-bio">Son una pareja de ingenieros, empresarios y referentes en negocios digitales en Colombia. Llevan más de 6 años en la industria del crecimiento personal, el liderazgo y los negocios en red.</p>
+          <div class="sp-card-bullets">
+            <div class="sp-card-bullet">
+              <span class="sp-card-bullet-icon">✅</span>
+              <span>Lograron pagar más de $50,000 USD en deudas tras una quiebra financiera en 2019 — en menos de dos años.</span>
+            </div>
+            <div class="sp-card-bullet">
+              <span class="sp-card-bullet-icon">✅</span>
+              <span>Pioneros de una multinacional de tecnología en Colombia.</span>
+            </div>
+            <div class="sp-card-bullet">
+              <span class="sp-card-bullet-icon">✅</span>
+              <span>Papás presentes que han guiado a miles de familias a lograr libertad de tiempo, dinero y decisión.</span>
+            </div>
+          </div>
         </div>
       </div>
 
