@@ -2124,6 +2124,46 @@
     </div>
   </footer>
 
+  <!-- ── MODAL FORMULARIO PAGO ── -->
+  <div class="pago-modal-overlay" id="pago-modal-overlay">
+    <div class="pago-modal" role="dialog" aria-modal="true" aria-labelledby="pago-modal-heading">
+      <button class="pago-modal-close" id="pago-modal-close" aria-label="Cerrar">✕</button>
+
+      <div class="pago-modal-eyebrow">Tu boleta · El Futuro Es Ahora</div>
+      <h2 class="pago-modal-title" id="pago-modal-heading">
+        Un paso más para<br>tu <em>transformación</em>
+      </h2>
+      <p class="pago-modal-sub">Ingresa tus datos para reservar tu lugar. El pago se completa de forma segura con MercadoPago.</p>
+
+      <div class="pago-modal-price">
+        <span class="pago-modal-price-label">Boleta General · 11 y 12 Abril · Bogotá</span>
+        <span class="pago-modal-price-amount">$280,000</span>
+      </div>
+
+      <form class="pago-form" id="pago-form" novalidate>
+        <div class="pago-field">
+          <label for="pf-name">Nombre completo *</label>
+          <input type="text" id="pf-name" name="name" placeholder="Tu nombre completo" required autocomplete="name">
+        </div>
+        <div class="pago-field">
+          <label for="pf-email">Correo electrónico *</label>
+          <input type="email" id="pf-email" name="email" placeholder="tu@correo.com" required autocomplete="email">
+        </div>
+        <div class="pago-field">
+          <label for="pf-phone">Teléfono / WhatsApp *</label>
+          <input type="tel" id="pf-phone" name="phone" placeholder="+57 300 000 0000" required autocomplete="tel">
+        </div>
+        <button type="submit" class="pago-modal-submit" id="pago-modal-submit">
+          Continuar al pago →
+        </button>
+      </form>
+
+      <div class="pago-modal-secure">
+        <span>🔒</span> 100% seguro · Procesado por MercadoPago
+      </div>
+    </div>
+  </div>
+
   <!-- ══════════════════════════════════════════════
        SCRIPTS
   ══════════════════════════════════════════════ -->
@@ -2388,45 +2428,6 @@
       btn.addEventListener('click', (e) => { e.preventDefault(); openModal(); });
     });
   </script>
-  <!-- ── MODAL FORMULARIO PAGO ── -->
-  <div class="pago-modal-overlay" id="pago-modal-overlay">
-    <div class="pago-modal" role="dialog" aria-modal="true" aria-labelledby="pago-modal-heading">
-      <button class="pago-modal-close" id="pago-modal-close" aria-label="Cerrar">✕</button>
-
-      <div class="pago-modal-eyebrow">Tu boleta · El Futuro Es Ahora</div>
-      <h2 class="pago-modal-title" id="pago-modal-heading">
-        Un paso más para<br>tu <em>transformación</em>
-      </h2>
-      <p class="pago-modal-sub">Ingresa tus datos para reservar tu lugar. El pago se completa de forma segura con MercadoPago.</p>
-
-      <div class="pago-modal-price">
-        <span class="pago-modal-price-label">Boleta General · 11 y 12 Abril · Bogotá</span>
-        <span class="pago-modal-price-amount">$280,000</span>
-      </div>
-
-      <form class="pago-form" id="pago-form" novalidate>
-        <div class="pago-field">
-          <label for="pf-name">Nombre completo *</label>
-          <input type="text" id="pf-name" name="name" placeholder="Tu nombre completo" required autocomplete="name">
-        </div>
-        <div class="pago-field">
-          <label for="pf-email">Correo electrónico *</label>
-          <input type="email" id="pf-email" name="email" placeholder="tu@correo.com" required autocomplete="email">
-        </div>
-        <div class="pago-field">
-          <label for="pf-phone">Teléfono / WhatsApp *</label>
-          <input type="tel" id="pf-phone" name="phone" placeholder="+57 300 000 0000" required autocomplete="tel">
-        </div>
-        <button type="submit" class="pago-modal-submit" id="pago-modal-submit">
-          Continuar al pago →
-        </button>
-      </form>
-
-      <div class="pago-modal-secure">
-        <span>🔒</span> 100% seguro · Procesado por MercadoPago
-      </div>
-    </div>
-  </div>
 
   <!-- WhatsApp flotante -->
   <a href="https://wa.link/etlgch" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp" style="
