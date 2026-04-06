@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pago en proceso — El Futuro Es Ahora</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #131313; --gold: #e6c364; --gold-c: #c9a84c; --amber: #fcbd00;
+      --text: #e5e2e1; --text-muted: #d0c5b2;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg); color: var(--text);
+      font-family: 'Montserrat', sans-serif;
+      min-height: 100vh; display: flex; align-items: center; justify-content: center;
+    }
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background: radial-gradient(ellipse 70% 50% at 50% 100%, rgba(201,168,76,0.10) 0%, transparent 65%);
+    }
+    .card {
+      position: relative; z-index: 1;
+      text-align: center;
+      max-width: 520px; width: 90%;
+      padding: 4rem 3rem;
+      background: rgba(28,27,27,0.9);
+      border-radius: 20px;
+      border: 1px solid rgba(201,168,76,0.2);
+      animation: fadeUp 0.8s cubic-bezier(0.16,1,0.3,1) both;
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .spinner-wrap { width: 80px; height: 80px; margin: 0 auto 2rem; position: relative; }
+    .spinner {
+      width: 80px; height: 80px; border-radius: 50%;
+      border: 2px solid rgba(201,168,76,0.15);
+      border-top-color: var(--gold);
+      animation: spin 1s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .spinner-inner {
+      position: absolute; inset: 14px; border-radius: 50%;
+      border: 2px solid rgba(201,168,76,0.1);
+      border-bottom-color: var(--amber);
+      animation: spin 0.7s linear infinite reverse;
+    }
+    .eyebrow {
+      font-size: 0.65rem; font-weight: 700; letter-spacing: 0.28em;
+      text-transform: uppercase; color: var(--gold);
+      margin-bottom: 1rem;
+    }
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+      font-weight: 700; line-height: 1.2;
+      color: var(--text); margin-bottom: 1.2rem;
+    }
+    p { font-size: 0.92rem; color: var(--text-muted); line-height: 1.75; margin-bottom: 1rem; }
+    .info-box {
+      background: rgba(201,168,76,0.06);
+      border: 1px solid rgba(201,168,76,0.15);
+      border-radius: 10px;
+      padding: 1.4rem 1.8rem;
+      margin: 1.8rem 0;
+      font-size: 0.88rem; color: var(--text-muted);
+      line-height: 1.7;
+    }
+    .info-box strong { color: var(--gold); }
+    .btn {
+      display: inline-block;
+      padding: 0.9rem 2.2rem;
+      font-size: 0.78rem; font-weight: 700; letter-spacing: 0.14em;
+      text-transform: uppercase; text-decoration: none;
+      border: 1px solid rgba(201,168,76,0.3);
+      color: var(--gold); border-radius: 8px;
+      margin-top: 0.5rem;
+      transition: border-color 0.3s;
+    }
+    .btn:hover { border-color: var(--gold); }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="spinner-wrap">
+      <div class="spinner"></div>
+      <div class="spinner-inner"></div>
+    </div>
+    <div class="eyebrow">Pago en proceso</div>
+    <h1>Tu pago está<br>siendo verificado</h1>
+    <p>Esto puede tardar unos minutos dependiendo de tu método de pago.</p>
+
+    <div class="info-box">
+      <strong>¿Pagaste con Efecty, PSE o transferencia?</strong><br>
+      Los pagos en efectivo o por PSE pueden tomar hasta <strong>1-2 días hábiles</strong> en confirmarse.
+      Recibirás un correo electrónico en cuanto se acredite el pago.
+    </div>
+
+    <p>Si tienes dudas sobre el estado de tu pago, escríbenos directamente — te respondemos en menos de 24 horas.</p>
+    <a href="/" class="btn">← Volver al inicio</a>
+  </div>
+</body>
+</html>

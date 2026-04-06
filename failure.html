@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pago no procesado — El Futuro Es Ahora</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #131313; --gold: #e6c364; --gold-c: #c9a84c;
+      --text: #e5e2e1; --text-muted: #d0c5b2;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg); color: var(--text);
+      font-family: 'Montserrat', sans-serif;
+      min-height: 100vh; display: flex; align-items: center; justify-content: center;
+    }
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background: radial-gradient(ellipse 70% 50% at 50% 100%, rgba(120,60,20,0.12) 0%, transparent 65%);
+    }
+    .card {
+      position: relative; z-index: 1;
+      text-align: center;
+      max-width: 520px; width: 90%;
+      padding: 4rem 3rem;
+      background: rgba(28,27,27,0.9);
+      border-radius: 20px;
+      border: 1px solid rgba(150,80,30,0.25);
+      animation: fadeUp 0.8s cubic-bezier(0.16,1,0.3,1) both;
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .icon-circle {
+      width: 80px; height: 80px; border-radius: 50%; margin: 0 auto 2rem;
+      background: rgba(180,80,30,0.2);
+      border: 2px solid rgba(200,100,40,0.4);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2.2rem;
+    }
+    .eyebrow {
+      font-size: 0.65rem; font-weight: 700; letter-spacing: 0.28em;
+      text-transform: uppercase; color: var(--gold);
+      margin-bottom: 1rem;
+    }
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+      font-weight: 700; line-height: 1.2;
+      color: var(--text); margin-bottom: 1.2rem;
+    }
+    p { font-size: 0.92rem; color: var(--text-muted); line-height: 1.75; margin-bottom: 1rem; }
+    .tips {
+      background: rgba(201,168,76,0.06);
+      border: 1px solid rgba(201,168,76,0.15);
+      border-radius: 10px;
+      padding: 1.4rem 1.8rem;
+      margin: 1.8rem 0;
+      text-align: left;
+    }
+    .tip {
+      display: flex; gap: 0.7rem; align-items: flex-start;
+      font-size: 0.85rem; color: var(--text-muted);
+      padding: 0.5rem 0;
+      border-bottom: 1px solid rgba(201,168,76,0.08);
+    }
+    .tip:last-child { border-bottom: none; }
+    .tip-icon { color: var(--gold); flex-shrink: 0; margin-top: 1px; }
+    .btn-primary {
+      display: inline-block;
+      padding: 0.9rem 2.2rem;
+      font-size: 0.78rem; font-weight: 700; letter-spacing: 0.14em;
+      text-transform: uppercase; text-decoration: none;
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-c) 100%);
+      color: #0e0e0e; border-radius: 8px;
+      margin-top: 0.5rem; margin-right: 0.8rem;
+      transition: box-shadow 0.3s;
+    }
+    .btn-primary:hover { box-shadow: 0 8px 32px rgba(230,195,100,0.4); }
+    .btn-ghost {
+      display: inline-block;
+      padding: 0.9rem 2.2rem;
+      font-size: 0.78rem; font-weight: 700; letter-spacing: 0.14em;
+      text-transform: uppercase; text-decoration: none;
+      border: 1px solid rgba(201,168,76,0.3);
+      color: var(--gold); border-radius: 8px;
+      margin-top: 0.5rem;
+      transition: border-color 0.3s;
+    }
+    .btn-ghost:hover { border-color: var(--gold); }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="icon-circle">⚡</div>
+    <div class="eyebrow">Pago no completado</div>
+    <h1>Algo salió mal,<br>pero tiene solución</h1>
+    <p>No te preocupes — tu cupo sigue disponible y puedes intentarlo de nuevo ahora mismo.</p>
+
+    <div class="tips">
+      <div class="tip">
+        <span class="tip-icon">→</span>
+        <span>Verifica que los datos de tu tarjeta estén correctos.</span>
+      </div>
+      <div class="tip">
+        <span class="tip-icon">→</span>
+        <span>Asegúrate de tener saldo o cupo suficiente.</span>
+      </div>
+      <div class="tip">
+        <span class="tip-icon">→</span>
+        <span>Intenta con otro método: PSE, Nequi, Efecty o transferencia.</span>
+      </div>
+      <div class="tip">
+        <span class="tip-icon">→</span>
+        <span>Si el problema persiste, contáctanos por WhatsApp.</span>
+      </div>
+    </div>
+
+    <div>
+      <a href="/#precio" class="btn-primary">Intentar de nuevo →</a>
+      <a href="/" class="btn-ghost">Volver al inicio</a>
+    </div>
+  </div>
+</body>
+</html>

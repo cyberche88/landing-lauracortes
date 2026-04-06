@@ -1814,6 +1814,87 @@
         heroContent.style.opacity   = 1 - (window.scrollY / (window.innerHeight * 0.7));
       }
     }, { passive: true });
+
+    /* ─── MERCADOPAGO PAYMENT FLOW ──────────────────────────── */
+    async function initPayment(btn) {
+      if (btn.dataset.loading === 'true') return;
+
+      // Save original content
+      const originalHTML = btn.innerHTML;
+      const originalWidth = btn.offsetWidth;
+
+      // Loading state
+      btn.dataset.loading = 'true';
+      btn.style.minWidth  = originalWidth + 'px';
+      btn.style.pointerEvents = 'none';
+      btn.style.opacity = '0.85';
+      btn.innerHTML = `
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+          style="animation: spinBtn 0.8s linear infinite; flex-shrink:0;">
+          <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+        </svg>
+        Procesando...
+      `;
+
+      // Add spin keyframes if not present
+      if (!document.getElementById('spin-kf')) {
+        const s = document.createElement('style');
+        s.id = 'spin-kf';
+        s.textContent = '@keyframes spinBtn { to { transform: rotate(360deg); } }';
+        document.head.appendChild(s);
+      }
+
+      try {
+        const res = await fetch('/.netlify/functions/create-preference', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ quantity: 1 })
+        });
+
+        const data = await res.json();
+
+        if (!res.ok || data.error) {
+          throw new Error(data.error || 'Error al crear la preferencia de pago.');
+        }
+
+        // Redirect to MercadoPago Checkout Pro
+        window.location.href = data.init_point;
+
+      } catch (err) {
+        console.error('Payment error:', err);
+
+        // Show error state
+        btn.innerHTML = `⚠ ${err.message || 'Error. Intenta de nuevo.'}`;
+        btn.style.background = 'rgba(200,80,30,0.2)';
+        btn.style.color = '#f08060';
+        btn.style.border = '1px solid rgba(200,80,30,0.4)';
+
+        setTimeout(() => {
+          btn.innerHTML = originalHTML;
+          btn.style.background = '';
+          btn.style.color = '';
+          btn.style.border = '';
+          btn.style.opacity = '';
+          btn.style.pointerEvents = '';
+          btn.dataset.loading = 'false';
+        }, 3500);
+        return;
+      }
+    }
+
+    // Attach payment handler to all purchase buttons
+    document.querySelectorAll('.btn-primary, .btn-precio').forEach(btn => {
+      // Only attach to buttons that link to #precio or are the actual purchase buttons
+      const href = btn.getAttribute('href');
+      if (href && href !== '#precio' && href !== '#') return;
+      if (btn.classList.contains('btn-precio') || href === '#') {
+        btn.removeAttribute('href');
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          initPayment(btn);
+        });
+      }
+    });
   </script>
 </body>
 </html>

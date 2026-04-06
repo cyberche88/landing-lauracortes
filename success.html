@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>¡Pago Exitoso! — El Futuro Es Ahora</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #131313; --gold: #e6c364; --gold-c: #c9a84c; --amber: #fcbd00;
+      --text: #e5e2e1; --text-muted: #d0c5b2;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg); color: var(--text);
+      font-family: 'Montserrat', sans-serif;
+      min-height: 100vh; display: flex; align-items: center; justify-content: center;
+      overflow: hidden;
+    }
+    /* Particles */
+    canvas { position: fixed; inset: 0; z-index: 0; opacity: 0.5; pointer-events: none; }
+    /* Glow background */
+    body::before {
+      content: '';
+      position: fixed; inset: 0; z-index: 0;
+      background: radial-gradient(ellipse 70% 60% at 50% 100%, rgba(201,168,76,0.16) 0%, transparent 65%);
+    }
+    .card {
+      position: relative; z-index: 1;
+      text-align: center;
+      max-width: 540px; width: 90%;
+      padding: 4rem 3rem;
+      background: rgba(28,27,27,0.85);
+      border-radius: 20px;
+      border: 1px solid rgba(201,168,76,0.25);
+      backdrop-filter: blur(20px);
+      animation: fadeUp 0.8s cubic-bezier(0.16,1,0.3,1) both;
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .check-circle {
+      width: 80px; height: 80px; border-radius: 50%; margin: 0 auto 2rem;
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-c) 100%);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2.2rem;
+      box-shadow: 0 0 48px rgba(230,195,100,0.4);
+      animation: popIn 0.6s 0.3s cubic-bezier(0.16,1,0.3,1) both;
+    }
+    @keyframes popIn {
+      from { transform: scale(0); }
+      to   { transform: scale(1); }
+    }
+    .eyebrow {
+      font-size: 0.65rem; font-weight: 700; letter-spacing: 0.28em;
+      text-transform: uppercase; color: var(--gold);
+      margin-bottom: 1rem;
+    }
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      font-weight: 900; line-height: 1.15;
+      color: var(--text); margin-bottom: 1.2rem;
+    }
+    h1 em { font-style: italic; color: var(--gold); }
+    p {
+      font-size: 0.95rem; color: var(--text-muted);
+      line-height: 1.75; margin-bottom: 1rem;
+    }
+    .detail-box {
+      background: rgba(201,168,76,0.07);
+      border: 1px solid rgba(201,168,76,0.2);
+      border-radius: 10px;
+      padding: 1.4rem 1.8rem;
+      margin: 2rem 0;
+      text-align: left;
+    }
+    .detail-row {
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: 0.88rem; padding: 0.4rem 0;
+      border-bottom: 1px solid rgba(201,168,76,0.1);
+    }
+    .detail-row:last-child { border-bottom: none; }
+    .detail-label { color: var(--text-muted); }
+    .detail-value { color: var(--gold); font-weight: 700; }
+    .btn {
+      display: inline-block;
+      padding: 0.9rem 2.2rem;
+      font-size: 0.78rem; font-weight: 700; letter-spacing: 0.14em;
+      text-transform: uppercase; text-decoration: none;
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-c) 100%);
+      color: #0e0e0e; border-radius: 8px;
+      margin-top: 1.5rem;
+      transition: box-shadow 0.3s;
+    }
+    .btn:hover { box-shadow: 0 8px 32px rgba(230,195,100,0.4); }
+    .note { font-size: 0.78rem; color: var(--text-muted); opacity: 0.7; margin-top: 1.5rem; }
+  </style>
+</head>
+<body>
+  <canvas id="c"></canvas>
+  <div class="card">
+    <div class="check-circle">✓</div>
+    <div class="eyebrow">Pago confirmado</div>
+    <h1>¡Bienvenido al<br><em>movimiento Imparable!</em></h1>
+    <p>Tu boleta para <strong>El Futuro Es Ahora</strong> está confirmada.<br>En los próximos minutos recibirás un correo con todos los detalles.</p>
+
+    <div class="detail-box">
+      <div class="detail-row">
+        <span class="detail-label">Evento</span>
+        <span class="detail-value">El Futuro Es Ahora</span>
+      </div>
+      <div class="detail-row">
+        <span class="detail-label">Fecha</span>
+        <span class="detail-value">11 y 12 de Abril, 2026</span>
+      </div>
+      <div class="detail-row">
+        <span class="detail-label">Ciudad</span>
+        <span class="detail-value">Bogotá, Colombia</span>
+      </div>
+      <div class="detail-row">
+        <span class="detail-label">Valor pagado</span>
+        <span class="detail-value">$270,000 COP</span>
+      </div>
+    </div>
+
+    <p>Revisa tu bandeja de entrada (y spam) para encontrar la confirmación oficial con el acceso al evento.</p>
+    <a href="/" class="btn">← Volver al inicio</a>
+    <p class="note">¿Tienes alguna pregunta? Escríbenos por WhatsApp o Instagram @BeImparables</p>
+  </div>
+  <script>
+    const c = document.getElementById('c');
+    const ctx = c.getContext('2d');
+    c.width = window.innerWidth; c.height = window.innerHeight;
+    const pts = Array.from({length: 60}, () => ({
+      x: Math.random()*c.width, y: Math.random()*c.height,
+      r: Math.random()*1.2+0.3, vy: -(Math.random()*0.3+0.1),
+      vx: (Math.random()-.5)*0.2, a: Math.random()*0.5+0.2, da: (Math.random()-.5)*0.003
+    }));
+    (function loop() {
+      ctx.clearRect(0,0,c.width,c.height);
+      pts.forEach(p => {
+        p.x+=p.vx; p.y+=p.vy; p.a+=p.da;
+        if(p.a<0.05||p.a>0.8) p.da*=-1;
+        if(p.y<-10) { p.y=c.height+10; p.x=Math.random()*c.width; }
+        ctx.save(); ctx.globalAlpha=p.a; ctx.fillStyle='#e6c364';
+        ctx.shadowBlur=6; ctx.shadowColor='#e6c364';
+        ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,Math.PI*2); ctx.fill(); ctx.restore();
+      });
+      requestAnimationFrame(loop);
+    })();
+  </script>
+</body>
+</html>
