@@ -145,7 +145,8 @@
     .hero {
       position: relative; min-height: 100svh;
       display: flex; flex-direction: column;
-      align-items: flex-start; justify-content: center;
+      align-items: center; justify-content: center;
+      text-align: center;
       padding: clamp(6rem, 10vh, 9rem) clamp(1.5rem, 8vw, 8rem) clamp(4rem, 8vh, 7rem);
       overflow: hidden;
     }
@@ -168,7 +169,7 @@
         conic-gradient(from 270deg at 50% 100%, transparent 0deg, rgba(168,85,247,0.03) 6deg, transparent 12deg);
       pointer-events: none;
     }
-    .hero-content { position: relative; z-index: 2; max-width: 900px; }
+    .hero-content { position: relative; z-index: 2; max-width: 900px; display: flex; flex-direction: column; align-items: center; }
     .hero-eyebrow {
       display: inline-flex; align-items: center; gap: 0.75rem;
       font-size: 0.72rem; font-weight: 600; letter-spacing: 0.22em;
