@@ -510,129 +510,126 @@
       color: var(--text-muted); line-height: 1.7; margin-top: 1rem;
     }
 
-    /* Featured speaker card — horizontal */
-    .sp-featured {
+    /* ─── SPEAKERS MOSAIC ────────────────────────────── */
+    .sp-mosaic {
       display: grid;
-      grid-template-columns: 1fr 1.4fr;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+    .sp-hero-main { grid-column: 1 / 3; height: 440px; }
+    .sp-hero-side { grid-column: 3 / 4; height: 440px; }
+    .sp-trio {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+    .sp-card-trio { height: 310px; }
+    .sp-duo { grid-column: 1 / -1; height: 310px; }
+
+    /* Base card */
+    .sp-card {
+      position: relative;
       border-radius: 14px;
       overflow: hidden;
-      background: var(--surface-low);
-      margin-bottom: 2rem;
-      transition: transform 0.4s var(--ease-out), box-shadow 0.4s;
+      background: #1a0e2e;
+      cursor: default;
     }
-    .sp-featured:hover { transform: translateY(-3px); box-shadow: 0 24px 60px rgba(0,0,0,0.5); }
-    .sp-featured.reversed { grid-template-columns: 1.4fr 1fr; }
-    .sp-featured.reversed .sp-photo { order: 2; }
-    .sp-featured.reversed .sp-content { order: 1; }
-
-    .sp-photo {
-      position: relative; overflow: hidden;
-      min-height: 320px;
-      background: linear-gradient(135deg, #1a0e2e 0%, #2d1650 100%);
-    }
-    .sp-photo img {
+    .sp-card img {
       width: 100%; height: 100%;
       object-fit: cover; object-position: top center;
       display: block;
-      transition: transform 0.6s var(--ease-out);
+      transition: transform 0.7s cubic-bezier(0.25,0.46,0.45,0.94);
     }
-    .sp-featured:hover .sp-photo img { transform: scale(1.03); }
-    .sp-photo-overlay {
+    .sp-card:hover img { transform: scale(1.05); }
+
+    /* Gradient overlay */
+    .sp-card-overlay {
       position: absolute; inset: 0;
-      background: linear-gradient(to right, rgba(19,19,19,0.15) 0%, transparent 60%);
+      background: linear-gradient(
+        to top,
+        rgba(10,7,18,0.97) 0%,
+        rgba(10,7,18,0.72) 38%,
+        rgba(10,7,18,0.18) 65%,
+        transparent 100%
+      );
+      display: flex; flex-direction: column;
+      justify-content: flex-end;
+      padding: clamp(1.2rem, 2.5vw, 1.8rem);
+      transition: background 0.4s;
     }
-    .sp-featured.reversed .sp-photo-overlay {
-      background: linear-gradient(to left, rgba(19,19,19,0.15) 0%, transparent 60%);
+    .sp-card:hover .sp-card-overlay {
+      background: linear-gradient(
+        to top,
+        rgba(10,7,18,0.99) 0%,
+        rgba(10,7,18,0.82) 48%,
+        rgba(10,7,18,0.25) 72%,
+        transparent 100%
+      );
     }
 
-    .sp-content {
-      padding: clamp(2rem, 4vw, 3rem);
-      display: flex; flex-direction: column; justify-content: center;
-      gap: 0.9rem;
+    /* Tag pill */
+    .sp-tag {
+      display: inline-block;
+      font-size: 0.6rem; font-weight: 700; letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--amber);
+      background: rgba(192,132,252,0.1);
+      border: 1px solid rgba(192,132,252,0.28);
+      border-radius: 4px;
+      padding: 0.22em 0.65em;
+      margin-bottom: 0.55rem;
+      width: fit-content;
     }
-    .sp-name {
+    .sp-card-name {
       font-family: var(--font-sans);
-      font-size: clamp(1rem, 1.8vw, 1.25rem);
-      font-weight: 800; letter-spacing: 0.08em;
+      font-size: clamp(0.95rem, 1.8vw, 1.2rem);
+      font-weight: 800; letter-spacing: 0.07em;
       text-transform: uppercase;
       background: linear-gradient(90deg, #e6c364 0%, #c9a84c 100%);
       -webkit-background-clip: text; -webkit-text-fill-color: transparent;
       background-clip: text;
+      line-height: 1.2; margin-bottom: 0.3rem;
     }
-    .sp-role {
-      font-size: 0.85rem; font-weight: 600;
-      color: var(--amber); line-height: 1.4;
+    .sp-card-role {
+      font-size: 0.8rem; font-weight: 600;
+      color: rgba(229,226,225,0.72);
+      line-height: 1.4; margin-bottom: 0.55rem;
     }
-    .sp-bio {
-      font-size: clamp(0.88rem, 1.3vw, 0.96rem);
-      color: var(--text-muted); line-height: 1.8;
+    .sp-card-bio {
+      font-size: 0.82rem;
+      color: rgba(207,194,214,0.78);
+      line-height: 1.65;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      max-height: 0; opacity: 0;
+      transition: max-height 0.4s var(--ease-out), opacity 0.4s;
     }
-    .sp-bio + .sp-bio { margin-top: 0.5rem; }
-    .sp-bullets { display: flex; flex-direction: column; gap: 0.6rem; margin-top: 0.4rem; }
-    .sp-bullet {
-      display: flex; gap: 0.7rem; align-items: flex-start;
-      font-size: 0.9rem; font-weight: 600; color: var(--text);
-      line-height: 1.5;
+    .sp-card:hover .sp-card-bio {
+      max-height: 8rem; opacity: 1;
     }
-    .sp-bullet-icon { color: #22c55e; flex-shrink: 0; font-size: 1.1rem; }
+    .sp-hero-main .sp-card-bio,
+    .sp-duo .sp-card-bio {
+      max-height: none; opacity: 1;
+      -webkit-line-clamp: 4;
+    }
 
-    /* "También en Escenario" block */
-    .sp-also {
-      background: var(--surface-low);
-      border-radius: 14px;
-      padding: clamp(2rem, 4vw, 3rem);
-      margin-bottom: 2rem;
+    /* Responsive */
+    @media (max-width: 820px) {
+      .sp-mosaic { grid-template-columns: 1fr 1fr; }
+      .sp-hero-main { grid-column: 1 / -1; height: 320px; }
+      .sp-hero-side { grid-column: 1 / 2; height: 280px; }
+      .sp-duo { grid-column: 1 / -1; height: 280px; }
+      .sp-trio { grid-template-columns: 1fr 1fr; }
+      .sp-card-trio:last-child { grid-column: 1 / -1; height: 240px; }
     }
-    .sp-also-title {
-      font-family: var(--font-display);
-      font-size: clamp(1.2rem, 2.2vw, 1.6rem);
-      font-weight: 700; font-style: italic;
-      color: #e6c364;
-      margin-bottom: 2rem; text-align: center;
-    }
-    .sp-also-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: clamp(2rem, 4vw, 3.5rem) clamp(2rem, 5vw, 5rem);
-      margin-bottom: 2.5rem;
-    }
-    @media (max-width: 640px) { .sp-also-grid { grid-template-columns: 1fr; } }
-    .sp-also-item {}
-    .sp-also-name {
-      font-size: 0.82rem; font-weight: 800; letter-spacing: 0.12em;
-      text-transform: uppercase;
-      background: linear-gradient(90deg, #e6c364 0%, #c9a84c 100%);
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-      background-clip: text;
-      margin-bottom: 0.3rem;
-    }
-    .sp-also-role {
-      font-size: 0.8rem; font-style: italic; font-weight: 600;
-      color: var(--amber); margin-bottom: 0.7rem;
-    }
-    .sp-also-bio {
-      font-size: 0.88rem; color: var(--text-muted); line-height: 1.7;
-    }
-    .sp-group-photos {
-      display: flex; gap: 1.5rem; justify-content: center;
-      flex-wrap: wrap;
-    }
-    .sp-group-photos img {
-      height: 240px; width: auto; max-width: 220px;
-      object-fit: cover; object-position: top;
-      border-radius: 10px;
-      filter: brightness(0.92);
-      transition: filter 0.3s, transform 0.4s var(--ease-out);
-    }
-    .sp-group-photos img:hover { filter: brightness(1); transform: translateY(-4px); }
-
-    /* Responsive speakers */
-    @media (max-width: 720px) {
-      .sp-featured, .sp-featured.reversed { grid-template-columns: 1fr; }
-      .sp-featured.reversed .sp-photo { order: 1; }
-      .sp-featured.reversed .sp-content { order: 2; }
-      .sp-photo { min-height: 260px; }
-      .sp-group-photos img { height: 180px; max-width: 160px; }
+    @media (max-width: 520px) {
+      .sp-mosaic, .sp-trio { grid-template-columns: 1fr; }
+      .sp-hero-main, .sp-hero-side, .sp-duo { grid-column: auto; height: 280px; }
+      .sp-card-trio, .sp-card-trio:last-child { grid-column: auto; height: 260px; }
+      .sp-card-bio { max-height: none; opacity: 1; }
     }
 
     /* ─── TESTIMONIOS ────────────────────────────────────────────── */
@@ -1306,86 +1303,73 @@
       <p>Cada orador ha sido seleccionado para darte lo que necesitas: mentalidad, estrategia y herramientas reales.</p>
     </div>
 
-    <!-- ── MOYN & EHSAAN ISLAM ── -->
-    <div class="sp-featured reveal">
-      <div class="sp-photo">
+    <div class="sp-mosaic">
+
+      <!-- ── HERO ROW ── -->
+      <!-- Moyn & Ehsaan: 2/3 width hero -->
+      <div class="sp-card sp-hero-main reveal">
         <img src="speakers/moyn-ehsaan.png" alt="Moyn y Ehsaan Islam">
-        <div class="sp-photo-overlay"></div>
+        <div class="sp-card-overlay">
+          <div class="sp-tag">Keynote · Be Global</div>
+          <div class="sp-card-name">Moyn &amp; Ehsaan Islam</div>
+          <div class="sp-card-role">Co-Fundadores de Be · Visionarios del Network Marketing Global</div>
+          <p class="sp-card-bio">Arquitectos de uno de los movimientos de afiliados más grandes del mundo. En IMPARABLES 2026, revelarán la visión que mueve millones y el futuro de SageMaster como motor de riqueza para sus afiliados.</p>
+        </div>
       </div>
-      <div class="sp-content">
-        <div class="sp-name">Moyn &amp; Ehsaan Islam</div>
-        <div class="sp-role">Co-Fundadores de Be · Visionarios del Network Marketing Global</div>
-        <p class="sp-bio">Los hermanos Islam son los arquitectos de uno de los movimientos de afiliados más grandes del mundo. Moyn Islam, CEO y Co-Fundador de Be, ha construido una red de miles de afiliados independientes en múltiples continentes. Junto con su hermano Ehsaan, han revolucionado la forma en que las personas generan ingresos desde casa.</p>
-        <p class="sp-bio">En IMPARABLES 2026, compartirán la visión que mueve millones, las estrategias que usaron para escalar Be a nivel global y el futuro de la tecnología SageMaster como motor de riqueza para sus afiliados.</p>
-      </div>
-    </div>
 
-    <!-- ── NICK SANTONASTASSO ── -->
-    <div class="sp-featured reversed reveal reveal-delay-1">
-      <div class="sp-content" style="text-align:center;">
-        <div class="sp-name">Nick Santonastasso</div>
-        <div class="sp-role">Conferencista Mundial · Autor · Coach de Alto Rendimiento</div>
-        <p class="sp-bio">Nació con el síndrome de Hanhart — sin piernas y con un solo brazo parcial. Lo que para el mundo era una limitación, Nick lo convirtió en su mayor fortaleza. Hoy es uno de los conferencistas más poderosos del planeta.</p>
-        <p class="sp-bio">Ha compartido escenario con Tony Robbins y Gary Vaynerchuk, e inspirado a millones de personas en todo el mundo a dejar las excusas y asumir plena responsabilidad por sus vidas. En IMPARABLES 2026, Nick vendrá a remover tus límites desde adentro.</p>
-      </div>
-      <div class="sp-photo">
+      <!-- Nick: 1/3 side hero -->
+      <div class="sp-card sp-hero-side reveal reveal-delay-1">
         <img src="speakers/nick-santonastasso.png" alt="Nick Santonastasso">
-        <div class="sp-photo-overlay"></div>
+        <div class="sp-card-overlay">
+          <div class="sp-tag">Keynote · Alto Rendimiento</div>
+          <div class="sp-card-name">Nick Santonastasso</div>
+          <div class="sp-card-role">Conferencista Mundial · Autor · Coach</div>
+          <p class="sp-card-bio">Nació sin piernas y con un solo brazo parcial. Hoy inspira a millones junto a Tony Robbins. Vendrá a remover tus límites desde adentro.</p>
+        </div>
       </div>
-    </div>
 
-    <!-- ── TAMBIÉN EN ESCENARIO ── -->
-    <div class="sp-also reveal reveal-delay-2">
-      <div class="sp-also-title">También en Escenario...</div>
-      <div class="sp-also-grid">
-        <div class="sp-also-item">
-          <div class="sp-also-name">Giorgio Trabaldo</div>
-          <div class="sp-also-role">Italia · Líder Multinivel Internacional</div>
-          <p class="sp-also-bio">Uno de los networkers más exitosos de Europa. Giorgio ha construido organizaciones de decenas de miles de personas y es conocido por sus estrategias de duplicación a escala global.</p>
+      <!-- ── TRIO ROW ── -->
+      <div class="sp-trio reveal reveal-delay-2">
+        <div class="sp-card sp-card-trio">
+          <img src="speakers/giorgio-trabaldo.png" alt="Giorgio Trabaldo">
+          <div class="sp-card-overlay">
+            <div class="sp-tag">Italia · Multinivel</div>
+            <div class="sp-card-name">Giorgio Trabaldo</div>
+            <div class="sp-card-role">Líder Multinivel Internacional</div>
+            <p class="sp-card-bio">Uno de los networkers más exitosos de Europa con organizaciones de decenas de miles de personas y estrategias de duplicación a escala global.</p>
+          </div>
         </div>
-        <div class="sp-also-item">
-          <div class="sp-also-name">Charlie Villarreal</div>
-          <div class="sp-also-role">Emprendedor Digital · Liderazgo y Mentalidad</div>
-          <p class="sp-also-bio">Referente en mentalidad emprendedora y network marketing en Latinoamérica. Charlie inspira con su historia y equipa con estrategias que realmente funcionan en el mercado hispano.</p>
+        <div class="sp-card sp-card-trio">
+          <img src="speakers/charlie-villarreal.png" alt="Charlie Villarreal">
+          <div class="sp-card-overlay">
+            <div class="sp-tag">LATAM · Liderazgo</div>
+            <div class="sp-card-name">Charlie Villarreal</div>
+            <div class="sp-card-role">Emprendedor Digital · Mentalidad</div>
+            <p class="sp-card-bio">Referente en mentalidad emprendedora y network marketing en Latinoamérica. Estrategias que funcionan en el mercado hispano.</p>
+          </div>
         </div>
-        <div class="sp-also-item">
-          <div class="sp-also-name">Eduardo Otero</div>
-          <div class="sp-also-role">Estratega de Negocios · Educación Financiera</div>
-          <p class="sp-also-bio">Eduardo combina décadas de experiencia en negocios con una pasión profunda por enseñar a las personas a construir riqueza. Su sesión de educación financiera es una de las más esperadas del evento.</p>
+        <div class="sp-card sp-card-trio">
+          <img src="speakers/eduardo-otero.png" alt="Eduardo Otero">
+          <div class="sp-card-overlay">
+            <div class="sp-tag">Finanzas · Negocios</div>
+            <div class="sp-card-name">Eduardo Otero</div>
+            <div class="sp-card-role">Estratega · Educación Financiera</div>
+            <p class="sp-card-bio">Combina décadas de experiencia en negocios con la pasión de enseñar a construir riqueza real. La sesión más esperada.</p>
+          </div>
         </div>
       </div>
-      <div class="sp-group-photos">
-        <img src="speakers/giorgio-trabaldo.png" alt="Giorgio Trabaldo">
-        <img src="speakers/charlie-villarreal.png" alt="Charlie Villarreal">
-        <img src="speakers/eduardo-otero.png" alt="Eduardo Otero">
-      </div>
-    </div>
 
-    <!-- ── MANUEL ZABALETA Y ALEXANDRA CORTES ── -->
-    <div class="sp-featured reveal reveal-delay-3">
-      <div class="sp-photo">
+      <!-- ── DUO ROW ── -->
+      <div class="sp-card sp-duo reveal reveal-delay-3">
         <img src="speakers/manuel-alexandra.png" alt="Manuel Zabaleta y Alexandra Cortes">
-        <div class="sp-photo-overlay"></div>
-      </div>
-      <div class="sp-content">
-        <div class="sp-name">Manuel Zabaleta &amp; Alexandra Cortes</div>
-        <div class="sp-role">Ingenieros · Empresarios · Educación Financiera &amp; Network Marketing</div>
-        <p class="sp-bio">Son una pareja de ingenieros, empresarios y referentes en negocios digitales en Colombia. Llevan más de 6 años en la industria del crecimiento personal, el liderazgo y los negocios en red. Han impactado con su ejemplo, cambiando la vida de miles de personas en áreas como las finanzas, la educación financiera y la libertad de tiempo.</p>
-        <div class="sp-bullets">
-          <div class="sp-bullet">
-            <span class="sp-bullet-icon">✅</span>
-            <span>Lograron pagar más de $50,000 USD en deudas después de una quiebra financiera en 2019 en menos de dos años.</span>
-          </div>
-          <div class="sp-bullet">
-            <span class="sp-bullet-icon">✅</span>
-            <span>Pioneros de una multinacional de tecnología en Colombia.</span>
-          </div>
-          <div class="sp-bullet">
-            <span class="sp-bullet-icon">✅</span>
-            <span>Papás presentes y empresarios que han guiado a muchas familias a lograr libertad de tiempo, dinero y decisión.</span>
-          </div>
+        <div class="sp-card-overlay">
+          <div class="sp-tag">Colombia · Educación Financiera</div>
+          <div class="sp-card-name">Manuel Zabaleta &amp; Alexandra Cortes</div>
+          <div class="sp-card-role">Ingenieros · Empresarios · Pioneros de Be en Colombia</div>
+          <p class="sp-card-bio">Pagaron +$50,000 USD en deudas en menos de 2 años tras una quiebra. Llevan 6+ años transformando familias colombianas hacia la libertad financiera, de tiempo y de decisión.</p>
         </div>
       </div>
+
     </div>
 
   </section>
