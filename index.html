@@ -956,6 +956,7 @@
       content: '';
       position: absolute; inset: 0;
       background: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(168,85,247,0.12) 0%, transparent 70%);
+      pointer-events: none;
     }
     .precio-card-glow {
       position: absolute; inset: -1px;
@@ -1016,7 +1017,8 @@
       background: linear-gradient(135deg, #e6c364 0%, #c9a84c 100%);
       color: #0e0e0e;
       border-radius: 8px;
-      cursor: none;
+      cursor: pointer;
+      position: relative; z-index: 2;
       transition: box-shadow 0.3s, transform 0.2s;
     }
     .btn-precio:hover { box-shadow: 0 8px 48px rgba(230,195,100,0.6); transform: translateY(-1px); }
@@ -2283,9 +2285,12 @@
     }
 
     // Attach payment handler to purchase buttons
-    document.querySelectorAll('.btn-precio').forEach(btn => {
+    const payBtns = document.querySelectorAll('.btn-precio');
+    console.log('[MP] Botones de pago encontrados:', payBtns.length);
+    payBtns.forEach(btn => {
       btn.addEventListener('click', (e) => {
         e.preventDefault();
+        console.log('[MP] Click en botón de pago');
         initPayment(btn);
       });
     });
