@@ -45,7 +45,7 @@ exports.handler = async (event) => {
         category_id: 'tickets',
         quantity: quantity,
         currency_id: 'COP',
-        unit_price: 270000
+        unit_price: 280000
       }
     ],
     payer: {
