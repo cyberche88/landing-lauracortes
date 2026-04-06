@@ -26,13 +26,16 @@ exports.handler = async (event) => {
     : 'https://landing-lauracortes.netlify.app';
 
   // Parsear cantidad si se envía desde el frontend (futuro: boletas múltiples)
-  let quantity = 1;
+  let quantity = 1, payerName = '', payerEmail = '', payerPhone = '';
   try {
     if (event.body) {
       const body = JSON.parse(event.body);
       if (body.quantity && Number.isInteger(body.quantity) && body.quantity > 0 && body.quantity <= 10) {
         quantity = body.quantity;
       }
+      if (body.name)  payerName  = String(body.name).slice(0, 100);
+      if (body.email) payerEmail = String(body.email).slice(0, 200);
+      if (body.phone) payerPhone = String(body.phone).replace(/\D/g, '').slice(0, 20);
     }
   } catch (_) {}
 
@@ -49,8 +52,9 @@ exports.handler = async (event) => {
       }
     ],
     payer: {
-      name: '',
-      email: ''
+      name: payerName,
+      email: payerEmail,
+      phone: { area_code: '57', number: payerPhone }
     },
     back_urls: {
       success: `${origin}/success.html`,
