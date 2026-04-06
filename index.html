@@ -626,12 +626,18 @@
       grid-template-columns: repeat(3, 1fr);
       gap: 1.2rem;
     }
-    .sp-card-trio .sp-card-photo { height: 320px; }
+    .sp-card-trio { flex-direction: row; }
+    .sp-card-trio .sp-card-photo {
+      width: 46%; flex-shrink: 0; height: auto; min-height: 220px;
+    }
     .sp-card-trio .sp-card-photo img {
       object-fit: contain;
       object-position: center bottom;
     }
-    .sp-card-trio .sp-card-info { padding: 1.3rem 1.5rem 1.6rem; }
+    .sp-card-trio .sp-card-info {
+      padding: 1.3rem 1.4rem 1.5rem;
+      justify-content: center;
+    }
 
     /* ── DUO ROW: ancho completo, horizontal ── */
     .sp-duo {
@@ -659,9 +665,11 @@
     }
     @media (max-width: 600px) {
       .sp-mosaic, .sp-trio { grid-template-columns: 1fr; }
-      .sp-hero-main, .sp-duo { flex-direction: column; }
+      .sp-hero-main, .sp-duo, .sp-card-trio { flex-direction: column; }
       .sp-hero-main .sp-card-photo,
       .sp-duo .sp-card-photo { width: 100%; min-height: 260px; }
+      .sp-card-trio .sp-card-photo { width: 100%; min-height: 220px; }
+      .sp-card-trio .sp-card-photo img { object-fit: contain; }
       .sp-card-trio:last-child { grid-column: auto; }
       .sp-hero-side .sp-card-photo { height: 260px; }
     }
