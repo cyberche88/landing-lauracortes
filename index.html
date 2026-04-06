@@ -968,59 +968,6 @@
     }
 
     /* ─── GALERÍA ─────────────────────────────────────────────────── */
-    .galeria {
-      background: var(--bg);
-      padding: clamp(5rem, 10vw, 9rem) clamp(1.5rem, 8vw, 8rem);
-    }
-    .galeria-header { max-width: 700px; margin-bottom: clamp(3rem, 6vw, 5rem); }
-    .masonry-grid {
-      columns: 3 280px;
-      column-gap: 1.2rem;
-    }
-    .masonry-item {
-      break-inside: avoid;
-      margin-bottom: 1.2rem;
-      border-radius: 8px;
-      overflow: hidden;
-      position: relative;
-    }
-    .masonry-img {
-      width: 100%; display: block;
-      border-radius: 8px;
-      transition: transform 0.5s var(--ease-out);
-    }
-    .masonry-item:hover .masonry-img { transform: scale(1.04); }
-    .masonry-overlay {
-      position: absolute; inset: 0;
-      background: rgba(201,168,76,0.06);
-      border-radius: 8px;
-      transition: background 0.3s;
-    }
-    .masonry-item:hover .masonry-overlay { background: rgba(201,168,76,0.0); }
-    /* CSS art "photos" for gallery */
-    .photo-art {
-      width: 100%;
-      border-radius: 8px;
-    }
-    .ga1 { height: 280px; background: radial-gradient(ellipse at 30% 40%, #7c3aed22 0%, #0e0e0e 70%), linear-gradient(135deg, #120820 0%, #1e1030 50%, #0e0e0e 100%); }
-    .ga2 { height: 200px; background: radial-gradient(ellipse at 70% 30%, #a855f730 0%, #131313 70%), linear-gradient(220deg, #160820 0%, #131313 100%); }
-    .ga3 { height: 340px; background: radial-gradient(ellipse at 50% 60%, #7c3aed20 0%, #0a0a0a 65%), linear-gradient(180deg, #0e0818 0%, #0e0e0e 100%); }
-    .ga4 { height: 220px; background: radial-gradient(ellipse at 20% 70%, #c084fc25 0%, #131313 65%), linear-gradient(160deg, #130818 0%, #131313 100%); }
-    .ga5 { height: 180px; background: radial-gradient(ellipse at 80% 40%, #a855f718 0%, #0e0e0e 65%), linear-gradient(45deg, #0f0818 0%, #0e0e0e 100%); }
-    .ga6 { height: 300px; background: radial-gradient(ellipse at 50% 20%, #7c3aed28 0%, #0a0a0a 60%), linear-gradient(200deg, #150828 0%, #0e0e0e 100%); }
-    .ga7 { height: 240px; background: radial-gradient(ellipse at 60% 80%, #c084fc20 0%, #131313 65%), linear-gradient(90deg, #100818 0%, #131313 100%); }
-    .ga8 { height: 190px; background: radial-gradient(ellipse at 30% 30%, #a855f722 0%, #0e0e0e 60%), linear-gradient(315deg, #130820 0%, #0e0e0e 100%); }
-    /* Glowing dots on photos */
-    .photo-art::before {
-      content: '';
-      position: absolute; inset: 0;
-      background:
-        radial-gradient(circle 3px at 35% 45%, rgba(230,195,100,0.6) 0%, transparent 100%),
-        radial-gradient(circle 2px at 65% 30%, rgba(252,189,0,0.5) 0%, transparent 100%),
-        radial-gradient(circle 4px at 50% 70%, rgba(230,195,100,0.4) 0%, transparent 100%);
-      border-radius: inherit;
-    }
-
     /* ─── PRECIO ─────────────────────────────────────────────────── */
     .precio {
       background: var(--bg-deep);
@@ -1871,48 +1818,6 @@
   <!-- ══════════════════════════════════════════════
        GALERÍA
   ══════════════════════════════════════════════ -->
-  <section class="galeria" id="galeria">
-    <div class="galeria-header reveal">
-      <div class="section-eyebrow">La vibra</div>
-      <h2 class="section-title">Así se siente<br>ser <em>Imparable</em></h2>
-    </div>
-
-    <div class="masonry-grid reveal">
-      <div class="masonry-item">
-        <div class="ga1 photo-art masonry-img"></div>
-        <div class="masonry-overlay"></div>
-      </div>
-      <div class="masonry-item">
-        <div class="ga2 photo-art masonry-img"></div>
-        <div class="masonry-overlay"></div>
-      </div>
-      <div class="masonry-item">
-        <div class="ga3 photo-art masonry-img"></div>
-        <div class="masonry-overlay"></div>
-      </div>
-      <div class="masonry-item">
-        <div class="ga4 photo-art masonry-img"></div>
-        <div class="masonry-overlay"></div>
-      </div>
-      <div class="masonry-item">
-        <div class="ga5 photo-art masonry-img"></div>
-        <div class="masonry-overlay"></div>
-      </div>
-      <div class="masonry-item">
-        <div class="ga6 photo-art masonry-img"></div>
-        <div class="masonry-overlay"></div>
-      </div>
-      <div class="masonry-item">
-        <div class="ga7 photo-art masonry-img"></div>
-        <div class="masonry-overlay"></div>
-      </div>
-      <div class="masonry-item">
-        <div class="ga8 photo-art masonry-img"></div>
-        <div class="masonry-overlay"></div>
-      </div>
-    </div>
-  </section>
-
   <!-- ══════════════════════════════════════════════
        PRECIO
   ══════════════════════════════════════════════ -->
