@@ -40,7 +40,7 @@ exports.handler = async (event) => {
     items: [
       {
         id: 'EFEA-2026-BOLETA',
-        title: 'Boleta — El Futuro Es Ahora',
+        title: 'Boleta LC — El Futuro Es Ahora',
         description: '11 y 12 de Abril 2026, Bogotá. Educación financiera e Inteligencia Artificial.',
         category_id: 'tickets',
         quantity: quantity,
