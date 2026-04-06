@@ -727,10 +727,103 @@
       background: var(--bg-deep);
       padding: clamp(5rem, 10vw, 9rem) clamp(1.5rem, 8vw, 8rem);
     }
-    .testimonios-header { max-width: 700px; margin-bottom: clamp(3.5rem, 7vw, 6rem); }
+    .testimonios-header { max-width: 700px; margin-bottom: clamp(3rem, 6vw, 4.5rem); }
+
+    /* Pain / Benefit block */
+    .testi-pain-block {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      background: var(--surface-low);
+      border-radius: 16px;
+      border: 1px solid var(--outline);
+      overflow: hidden;
+      margin-bottom: 3rem;
+    }
+    .testi-pain-col {
+      padding: clamp(2rem, 4vw, 3rem);
+    }
+    .testi-pain-col:first-child {
+      border-right: 1px solid var(--outline);
+    }
+    .testi-col-label {
+      font-size: 0.62rem; font-weight: 800; letter-spacing: 0.28em;
+      text-transform: uppercase; margin-bottom: 1.4rem;
+      display: flex; align-items: center; gap: 0.6rem;
+    }
+    .testi-col-label.pain { color: rgba(248,113,113,0.85); }
+    .testi-col-label.gain { color: #4ade80; }
+    .testi-col-label::before {
+      content: ''; display: block;
+      width: 24px; height: 1px; background: currentColor; opacity: 0.6;
+    }
+    .testi-col-heading {
+      font-family: var(--font-display);
+      font-size: clamp(1.2rem, 2vw, 1.6rem);
+      font-weight: 700; line-height: 1.3;
+      color: var(--text); margin-bottom: 1.8rem;
+    }
+    .testi-col-heading em {
+      font-style: italic; color: rgba(248,113,113,0.85);
+    }
+    .testi-col-heading.gain-head em { color: #4ade80; }
+    .testi-list {
+      list-style: none;
+      display: flex; flex-direction: column; gap: 1rem;
+    }
+    .testi-list li {
+      display: flex; gap: 0.75rem; align-items: flex-start;
+      font-size: clamp(0.88rem, 1.4vw, 0.96rem);
+      color: var(--text-muted); line-height: 1.65;
+    }
+    .testi-list li .ico {
+      flex-shrink: 0; font-size: 0.95rem; margin-top: 0.1rem;
+    }
+    @media (max-width: 680px) {
+      .testi-pain-block { grid-template-columns: 1fr; }
+      .testi-pain-col:first-child { border-right: none; border-bottom: 1px solid var(--outline); }
+    }
+
+    /* Video testimonials */
+    .testi-videos {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+    .testi-video-card {
+      border-radius: 14px;
+      overflow: hidden;
+      background: var(--surface-low);
+      border: 1px solid var(--outline);
+      transition: border-color 0.4s, transform 0.4s var(--ease-out);
+    }
+    .testi-video-card:hover {
+      border-color: rgba(168,85,247,0.35);
+      transform: translateY(-3px);
+    }
+    .testi-video-card video {
+      width: 100%; display: block;
+      max-height: 320px; object-fit: cover;
+    }
+    .testi-video-info {
+      padding: 1.2rem 1.5rem 1.6rem;
+      border-top: 1px solid var(--outline);
+    }
+    .testi-video-city {
+      font-size: 0.6rem; font-weight: 800; letter-spacing: 0.24em;
+      text-transform: uppercase; color: var(--amber); margin-bottom: 0.4rem;
+    }
+    .testi-video-quote {
+      font-size: 0.88rem; color: var(--text-muted);
+      line-height: 1.65; font-style: italic;
+    }
+    @media (max-width: 640px) { .testi-videos { grid-template-columns: 1fr; } }
+
+    /* Text cards */
     .testimonios-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
       gap: 2rem;
     }
     .testi-card {
@@ -744,34 +837,24 @@
     .testi-card:hover { border-color: rgba(201,168,76,0.3); }
     .testi-quote-mark {
       font-family: var(--font-display);
-      font-size: 5rem;
-      line-height: 1;
-      color: var(--gold);
-      opacity: 0.2;
+      font-size: 5rem; line-height: 1;
+      color: var(--gold); opacity: 0.2;
       position: absolute; top: 1rem; right: 1.5rem;
     }
     .testi-text {
       font-family: var(--font-serif);
-      font-size: clamp(1rem, 1.8vw, 1.15rem);
-      font-style: italic;
-      line-height: 1.7;
-      color: var(--text-muted);
-      margin-bottom: 1.8rem;
+      font-size: clamp(1rem, 1.8vw, 1.1rem);
+      font-style: italic; line-height: 1.7;
+      color: var(--text-muted); margin-bottom: 1.8rem;
     }
-    .testi-author {
-      display: flex; align-items: center; gap: 1rem;
-    }
+    .testi-author { display: flex; align-items: center; gap: 1rem; }
     .testi-avatar {
       width: 44px; height: 44px; border-radius: 50%;
       background: linear-gradient(135deg, var(--gold-c) 0%, var(--surface-high) 100%);
       flex-shrink: 0;
     }
-    .testi-name {
-      font-size: 0.88rem; font-weight: 700; color: var(--text);
-    }
-    .testi-country {
-      font-size: 0.72rem; color: var(--text-muted); margin-top: 0.15rem;
-    }
+    .testi-name { font-size: 0.88rem; font-weight: 700; color: var(--text); }
+    .testi-country { font-size: 0.72rem; color: var(--text-muted); margin-top: 0.15rem; }
     .testi-stars {
       position: absolute; top: 2rem; left: 2.5rem;
       color: var(--amber); font-size: 0.75rem; letter-spacing: 0.1rem;
@@ -1519,9 +1602,58 @@
   <section class="testimonios" id="testimonios">
     <div class="testimonios-header reveal">
       <div class="section-eyebrow">Historias reales</div>
-      <h2 class="section-title">Sus palabras.<br><em>Sus vidas. Su transformación.</em></h2>
+      <h2 class="section-title">¿Te reconoces<br>en <em>alguna de estas?</em></h2>
     </div>
 
+    <!-- ── DOLOR / BENEFICIO ── -->
+    <div class="testi-pain-block reveal">
+      <div class="testi-pain-col">
+        <div class="testi-col-label pain">La realidad que nadie quiere ver</div>
+        <h3 class="testi-col-heading">Trabajas duro, pero el dinero nunca alcanza para <em>lo que realmente quieres.</em></h3>
+        <ul class="testi-list">
+          <li><span class="ico">❌</span>Llegas a fin de mes mirando el saldo con angustia, aunque nunca paras de trabajar.</li>
+          <li><span class="ico">❌</span>Tu ingreso depende 100% de que tú estés presente — si paras, el dinero para.</li>
+          <li><span class="ico">❌</span>Sabes que hay otra forma de hacer las cosas, pero nadie en tu círculo te la ha mostrado.</li>
+          <li><span class="ico">❌</span>El sistema te vendió la idea de que estudiar + trabajar duro = libertad. Y no funcionó.</li>
+          <li><span class="ico">❌</span>Ves a otros construir riqueza con tecnología y negocios en red... y no sabes por dónde empezar.</li>
+        </ul>
+      </div>
+      <div class="testi-pain-col">
+        <div class="testi-col-label gain">Lo que te llevas de estos 2 días</div>
+        <h3 class="testi-col-heading gain-head">Un ecosistema digital que trabaja para ti, <em>con o sin que estés presente.</em></h3>
+        <ul class="testi-list">
+          <li><span class="ico">✅</span>Claridad absoluta sobre cómo funciona el dinero en la era digital — y cómo aprovecharlo.</li>
+          <li><span class="ico">✅</span>Las estrategias exactas de SageMaster + Be para construir ingresos recurrentes desde cero.</li>
+          <li><span class="ico">✅</span>Un plan de acción real para tus primeros 90 días como emprendedor digital financiero.</li>
+          <li><span class="ico">✅</span>La mentalidad que separa a los que logran la libertad financiera de los que solo la sueñan.</li>
+          <li><span class="ico">✅</span>Una red de 2,000+ personas que ya tomaron la decisión y van en la misma dirección que tú.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ── VIDEOS ── -->
+    <div class="testi-videos reveal reveal-delay-1">
+      <div class="testi-video-card">
+        <video controls preload="metadata" poster="">
+          <source src="media/video-testimonios-bogota.mp4" type="video/mp4">
+        </video>
+        <div class="testi-video-info">
+          <div class="testi-video-city">📍 Bogotá, Colombia</div>
+          <p class="testi-video-quote">"Vine sin saber nada. Me fui con un plan, contactos y la certeza de que sí es posible."</p>
+        </div>
+      </div>
+      <div class="testi-video-card">
+        <video controls preload="metadata" poster="">
+          <source src="media/video-testimonios-cali.mp4" type="video/mp4">
+        </video>
+        <div class="testi-video-info">
+          <div class="testi-video-city">📍 Cali, Colombia</div>
+          <p class="testi-video-quote">"En dos días entendí más sobre finanzas e inversión que en toda mi vida. Esto cambió mi perspectiva."</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── CARDS TEXTO ── -->
     <div class="testimonios-grid">
       <div class="testi-card reveal reveal-delay-1">
         <div class="testi-stars">★★★★★</div>
@@ -1535,7 +1667,6 @@
           </div>
         </div>
       </div>
-
       <div class="testi-card reveal reveal-delay-2">
         <div class="testi-stars">★★★★★</div>
         <div class="testi-quote-mark">"</div>
@@ -1548,7 +1679,6 @@
           </div>
         </div>
       </div>
-
       <div class="testi-card reveal reveal-delay-3">
         <div class="testi-stars">★★★★★</div>
         <div class="testi-quote-mark">"</div>
