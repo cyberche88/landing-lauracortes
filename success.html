@@ -8,7 +8,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #131313; --gold: #e6c364; --gold-c: #c9a84c; --amber: #fcbd00;
+      --bg: #131313; --gold: #A855F7; --gold-c: #7C3AED; --amber: #C084FC;
       --text: #e5e2e1; --text-muted: #d0c5b2;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -145,8 +145,8 @@
         p.x+=p.vx; p.y+=p.vy; p.a+=p.da;
         if(p.a<0.05||p.a>0.8) p.da*=-1;
         if(p.y<-10) { p.y=c.height+10; p.x=Math.random()*c.width; }
-        ctx.save(); ctx.globalAlpha=p.a; ctx.fillStyle='#e6c364';
-        ctx.shadowBlur=6; ctx.shadowColor='#e6c364';
+        ctx.save(); ctx.globalAlpha=p.a; ctx.fillStyle='#A855F7';
+        ctx.shadowBlur=8; ctx.shadowColor='#A855F7';
         ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,Math.PI*2); ctx.fill(); ctx.restore();
       });
       requestAnimationFrame(loop);
