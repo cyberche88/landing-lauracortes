@@ -314,15 +314,18 @@
   </div>
 
   <script>
-    // Detectar si es pago pendiente
     const params = new URLSearchParams(window.location.search);
-    if (params.get('estado') === 'pendiente') {
+    const isPending = params.get('estado') === 'pendiente';
+    const paymentId = params.get('payment_id') || '';
+
+    // Mostrar banner si es pago pendiente
+    if (isPending) {
       document.getElementById('pendiente-banner').style.display = 'block';
     }
 
-    // Disparar evento de compra confirmada en GA4 y Meta
+    // Disparar eventos de conversión GA4 y Meta
     gtag('event', 'purchase', {
-      transaction_id: params.get('payment_id') || 'MP-' + Date.now(),
+      transaction_id: paymentId || 'MP-' + Date.now(),
       value: 280000,
       currency: 'COP',
       items: [{ item_name: 'Boleta LC — El Futuro Es Ahora', price: 280000, quantity: 1 }]
@@ -334,6 +337,21 @@
       content_name: 'Boleta LC — El Futuro Es Ahora',
       content_type: 'product'
     });
+
+    // Enviar email de confirmación si el pago fue aprobado
+    if (!isPending) {
+      try {
+        const payer = JSON.parse(localStorage.getItem('payer') || '{}');
+        if (payer.email) {
+          fetch('/.netlify/functions/send-confirmation', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ name: payer.name, email: payer.email, paymentId })
+          });
+          localStorage.removeItem('payer');
+        }
+      } catch (_) {}
+    }
   </script>
 
 </body>

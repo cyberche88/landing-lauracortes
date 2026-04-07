@@ -2415,6 +2415,8 @@
       if (!name || !email || !phone) return;
       gtag('event', 'inicio_pago', { event_category: 'conversion', event_label: 'Formulario enviado a MercadoPago', value: 280000, currency: 'COP' });
       fbq('track', 'Purchase', { value: 280000, currency: 'COP', content_name: 'Boleta LC — El Futuro Es Ahora' });
+      // Guardar datos del comprador para el email de confirmación
+      localStorage.setItem('payer', JSON.stringify({ name, email, phone }));
       initPayment({ name, email, phone });
     });
 
