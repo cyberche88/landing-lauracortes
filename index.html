@@ -1,6 +1,24 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+  <!-- Meta Pixel Code -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '936449302360462');
+  fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=936449302360462&ev=PageView&noscript=1"
+  /></noscript>
+  <!-- End Meta Pixel Code -->
+
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-RFW1JBY2TS"></script>
   <script>
@@ -2334,6 +2352,7 @@
       const phone = document.getElementById('pf-phone').value.trim();
       if (!name || !email || !phone) return;
       gtag('event', 'inicio_pago', { event_category: 'conversion', event_label: 'Formulario enviado a MercadoPago', value: 280000, currency: 'COP' });
+      fbq('track', 'Purchase', { value: 280000, currency: 'COP', content_name: 'Boleta LC — El Futuro Es Ahora' });
       initPayment({ name, email, phone });
     });
 
@@ -2342,6 +2361,7 @@
       btn.addEventListener('click', (e) => {
         e.preventDefault();
         gtag('event', 'click_boton_compra', { event_category: 'conversion', event_label: 'Invertir en mi futuro' });
+        fbq('track', 'InitiateCheckout', { value: 280000, currency: 'COP' });
         openModal();
       });
     });
