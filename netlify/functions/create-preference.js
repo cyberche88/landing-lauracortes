@@ -21,9 +21,7 @@ exports.handler = async (event) => {
   }
 
   // Detectar el origen para las back_urls
-  const origin = (event.headers && (event.headers.origin || event.headers.referer))
-    ? (event.headers.origin || new URL(event.headers.referer).origin)
-    : 'https://landing-lauracortes.netlify.app';
+  const origin = 'https://lauramcortes.com';
 
   // Parsear cantidad si se envía desde el frontend (futuro: boletas múltiples)
   let quantity = 1, payerName = '', payerEmail = '', payerPhone = '';
@@ -57,9 +55,9 @@ exports.handler = async (event) => {
       phone: { area_code: '57', number: payerPhone }
     },
     back_urls: {
-      success: `${origin}/success.html`,
-      failure: `${origin}/failure.html`,
-      pending: `${origin}/pending.html`
+      success: `${origin}/gracias`,
+      failure: `${origin}/?pago=fallido`,
+      pending: `${origin}/gracias?estado=pendiente`
     },
     auto_return: 'approved',
     statement_descriptor: 'BE IMPARABLES',

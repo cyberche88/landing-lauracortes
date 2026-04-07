@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- Meta Pixel Code -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '936449302360462');
+  fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=936449302360462&ev=PageView&noscript=1"
+  /></noscript>
+  <!-- End Meta Pixel Code -->
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-RFW1JBY2TS"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-RFW1JBY2TS');
+  </script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>¡Boleta confirmada! — El Futuro Es Ahora</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #131313;
+      --gold: #e6c364;
+      --purple: #A855F7;
+      --purple-dark: #7C3AED;
+    }
+
+    body {
+      background: var(--bg);
+      color: #fff;
+      font-family: 'Montserrat', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .card {
+      background: linear-gradient(145deg, #180f28 0%, #120a1e 50%, #131313 100%);
+      border: 1px solid rgba(168,85,247,0.35);
+      border-radius: 24px;
+      padding: clamp(2.5rem, 6vw, 4rem) clamp(2rem, 6vw, 4rem);
+      max-width: 580px;
+      width: 100%;
+      box-shadow: 0 0 60px rgba(168,85,247,0.12);
+    }
+
+    .check-circle {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #7C3AED, #A855F7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.8rem;
+      box-shadow: 0 0 30px rgba(168,85,247,0.4);
+    }
+
+    .check-circle svg {
+      width: 40px;
+      height: 40px;
+    }
+
+    .eyebrow {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--purple);
+      margin-bottom: 1rem;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 5vw, 2.8rem);
+      font-weight: 900;
+      line-height: 1.15;
+      margin-bottom: 1.2rem;
+    }
+
+    h1 em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .subtitle {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.7);
+      line-height: 1.7;
+      margin-bottom: 2rem;
+    }
+
+    .evento-info {
+      background: rgba(168,85,247,0.08);
+      border: 1px solid rgba(168,85,247,0.2);
+      border-radius: 12px;
+      padding: 1.2rem 1.5rem;
+      margin-bottom: 2rem;
+      text-align: left;
+    }
+
+    .evento-info-row {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.85);
+      padding: 0.4rem 0;
+    }
+
+    .evento-info-row + .evento-info-row {
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .evento-info-row span.icon {
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+
+    .pasos {
+      text-align: left;
+      margin-bottom: 2rem;
+    }
+
+    .pasos h3 {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 1rem;
+    }
+
+    .paso {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 0.9rem;
+    }
+
+    .paso-num {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #7C3AED, #A855F7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .paso-text {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.8);
+      line-height: 1.5;
+    }
+
+    .btn-wa {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: #25D366;
+      color: #fff;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 1rem 2rem;
+      border-radius: 50px;
+      margin-bottom: 1.2rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 20px rgba(37,211,102,0.35);
+      width: 100%;
+      justify-content: center;
+    }
+
+    .btn-wa:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(37,211,102,0.5);
+    }
+
+    .btn-back {
+      display: inline-block;
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.4);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .btn-back:hover { color: rgba(255,255,255,0.8); }
+
+    .logo {
+      margin-bottom: 2rem;
+    }
+
+    .logo img {
+      width: 120px;
+      opacity: 0.85;
+    }
+
+    /* Estado pendiente */
+    .pendiente-banner {
+      background: rgba(230,195,100,0.1);
+      border: 1px solid rgba(230,195,100,0.3);
+      border-radius: 10px;
+      padding: 0.9rem 1.2rem;
+      font-size: 0.85rem;
+      color: var(--gold);
+      margin-bottom: 1.5rem;
+      display: none;
+    }
+
+    @media (max-width: 480px) {
+      body { padding: 1.5rem 1rem; }
+      .card { border-radius: 16px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="logo">
+    <img src="/logo_futuro.png" alt="El Futuro Es Ahora">
+  </div>
+
+  <div class="card">
+    <div class="check-circle">
+      <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="20 6 9 17 4 12"></polyline>
+      </svg>
+    </div>
+
+    <div class="eyebrow">Pago confirmado</div>
+
+    <div class="pendiente-banner" id="pendiente-banner">
+      ⏳ Tu pago está en proceso. Te notificaremos por email cuando se confirme.
+    </div>
+
+    <h1>¡Tu lugar está<br><em>reservado!</em></h1>
+
+    <p class="subtitle">
+      Bienvenido a la experiencia que va a cambiar tu relación con el dinero para siempre.<br>
+      Nos vemos en Bogotá.
+    </p>
+
+    <div class="evento-info">
+      <div class="evento-info-row">
+        <span class="icon">📅</span>
+        <span><strong>11 y 12 de Abril, 2026</strong></span>
+      </div>
+      <div class="evento-info-row">
+        <span class="icon">📍</span>
+        <span>Ágora Convention Center · Bogotá, Colombia</span>
+      </div>
+      <div class="evento-info-row">
+        <span class="icon">🎟</span>
+        <span>Boleta General — Acceso 2 días completos</span>
+      </div>
+    </div>
+
+    <div class="pasos">
+      <h3>Próximos pasos</h3>
+      <div class="paso">
+        <div class="paso-num">1</div>
+        <div class="paso-text">Revisa tu correo — recibirás la confirmación con los detalles de tu boleta.</div>
+      </div>
+      <div class="paso">
+        <div class="paso-num">2</div>
+        <div class="paso-text">Únete al grupo de WhatsApp exclusivo de asistentes para recibir toda la información del evento.</div>
+      </div>
+      <div class="paso">
+        <div class="paso-num">3</div>
+        <div class="paso-text">Agenda las fechas — 11 y 12 de Abril 2026 · Bogotá · Ágora Convention Center.</div>
+      </div>
+    </div>
+
+    <a href="https://wa.link/etlgch" target="_blank" rel="noopener" class="btn-wa">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="white">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+      </svg>
+      Unirse al grupo de WhatsApp
+    </a>
+
+    <a href="https://lauramcortes.com/" class="btn-back">← Volver al inicio</a>
+  </div>
+
+  <script>
+    // Detectar si es pago pendiente
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('estado') === 'pendiente') {
+      document.getElementById('pendiente-banner').style.display = 'block';
+    }
+
+    // Disparar evento de compra confirmada en GA4 y Meta
+    gtag('event', 'purchase', {
+      transaction_id: params.get('payment_id') || 'MP-' + Date.now(),
+      value: 280000,
+      currency: 'COP',
+      items: [{ item_name: 'Boleta LC — El Futuro Es Ahora', price: 280000, quantity: 1 }]
+    });
+
+    fbq('track', 'Purchase', {
+      value: 280000,
+      currency: 'COP',
+      content_name: 'Boleta LC — El Futuro Es Ahora',
+      content_type: 'product'
+    });
+  </script>
+
+</body>
+</html>
