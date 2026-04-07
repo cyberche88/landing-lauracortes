@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-RFW1JBY2TS"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-RFW1JBY2TS');
+  </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="El Futuro Es Ahora — El evento de educación financiera e inteligencia artificial más transformador de Latinoamérica. 11 y 12 de Abril, 2026. Bogotá, Colombia.">
@@ -2325,12 +2333,17 @@
       const email = document.getElementById('pf-email').value.trim();
       const phone = document.getElementById('pf-phone').value.trim();
       if (!name || !email || !phone) return;
+      gtag('event', 'inicio_pago', { event_category: 'conversion', event_label: 'Formulario enviado a MercadoPago', value: 280000, currency: 'COP' });
       initPayment({ name, email, phone });
     });
 
     // Abrir modal al hacer click en botón de compra
     document.querySelectorAll('.btn-precio').forEach(btn => {
-      btn.addEventListener('click', (e) => { e.preventDefault(); openModal(); });
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        gtag('event', 'click_boton_compra', { event_category: 'conversion', event_label: 'Invertir en mi futuro' });
+        openModal();
+      });
     });
   </script>
 
