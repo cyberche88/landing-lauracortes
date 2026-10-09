@@ -40,13 +40,13 @@ exports.handler = async (event) => {
   const preference = {
     items: [
       {
-        id: 'EFEA-2026-BOLETA',
-        title: 'Boleta LC — El Futuro Es Ahora',
-        description: '11 y 12 de Abril 2026, Bogotá. Educación financiera e Inteligencia Artificial.',
+        id: 'CDF-2026-ENTRADA',
+        title: 'Entrada — Código del Futuro',
+        description: '18 de Octubre 2026, Bogotá. Tecnología, Inteligencia Artificial y generación de riqueza.',
         category_id: 'tickets',
         quantity: quantity,
         currency_id: 'COP',
-        unit_price: 280000
+        unit_price: 299000
       }
     ],
     payer: {
@@ -61,11 +61,11 @@ exports.handler = async (event) => {
     },
     auto_return: 'approved',
     statement_descriptor: 'BE IMPARABLES',
-    external_reference: `EFEA-${Date.now()}`,
+    external_reference: `CDF-${Date.now()}`,
     expires: false,
     metadata: {
-      event: 'El Futuro Es Ahora',
-      date: '2026-04-11',
+      event: 'Código del Futuro',
+      date: '2026-10-18',
       city: 'Bogota'
     }
   };

@@ -49,8 +49,8 @@ exports.handler = async (event) => {
           <!-- Header -->
           <tr>
             <td style="background:linear-gradient(135deg,#7C3AED,#A855F7);padding:32px 40px;text-align:center;">
-              <p style="margin:0;font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.8);">Confirmación de boleta</p>
-              <h1 style="margin:10px 0 0;font-size:28px;font-weight:900;color:#fff;line-height:1.2;">El Futuro<br>Es Ahora</h1>
+              <p style="margin:0;font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.8);">Confirmación de entrada</p>
+              <h1 style="margin:10px 0 0;font-size:28px;font-weight:900;color:#fff;line-height:1.2;">Código<br>del Futuro</h1>
             </td>
           </tr>
 
@@ -62,7 +62,7 @@ exports.handler = async (event) => {
               <h2 style="margin:0 0 20px;font-size:24px;font-weight:700;color:#fff;">${firstName} 🎉</h2>
 
               <p style="margin:0 0 24px;font-size:15px;color:rgba(255,255,255,0.75);line-height:1.7;">
-                Tu boleta para <strong style="color:#fff;">El Futuro Es Ahora</strong> está confirmada. Tomaste la decisión que va a cambiar tu relación con el dinero para siempre.
+                Tu entrada para <strong style="color:#fff;">Código del Futuro</strong> está confirmada. Tomaste la decisión de abrir tu mente a una nueva realidad.
               </p>
 
               <!-- Info box -->
@@ -72,20 +72,20 @@ exports.handler = async (event) => {
                     <table width="100%" cellpadding="0" cellspacing="0">
                       <tr>
                         <td style="padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.06);">
-                          <span style="font-size:13px;color:rgba(255,255,255,0.5);">📅 Fechas</span><br>
-                          <span style="font-size:14px;font-weight:600;color:#fff;">11 y 12 de Abril, 2026</span>
+                          <span style="font-size:13px;color:rgba(255,255,255,0.5);">📅 Fecha</span><br>
+                          <span style="font-size:14px;font-weight:600;color:#fff;">18 de Octubre, 2026</span>
                         </td>
                       </tr>
                       <tr>
                         <td style="padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.06);">
                           <span style="font-size:13px;color:rgba(255,255,255,0.5);">📍 Lugar</span><br>
-                          <span style="font-size:14px;font-weight:600;color:#fff;">Ágora Convention Center · Bogotá, Colombia</span>
+                          <span style="font-size:14px;font-weight:600;color:#fff;">Ágora Centro de Convenciones · Bogotá, Colombia</span>
                         </td>
                       </tr>
                       <tr>
                         <td style="padding:8px 0;">
-                          <span style="font-size:13px;color:rgba(255,255,255,0.5);">🎟 Boleta</span><br>
-                          <span style="font-size:14px;font-weight:600;color:#fff;">General — Acceso 2 días completos</span>
+                          <span style="font-size:13px;color:rgba(255,255,255,0.5);">🎟 Entrada</span><br>
+                          <span style="font-size:14px;font-weight:600;color:#fff;">Acceso completo — Código del Futuro</span>
                         </td>
                       </tr>
                     </table>
@@ -122,7 +122,7 @@ exports.handler = async (event) => {
                     <table cellpadding="0" cellspacing="0">
                       <tr>
                         <td style="width:28px;height:28px;background:linear-gradient(135deg,#7C3AED,#A855F7);border-radius:50%;text-align:center;vertical-align:middle;font-size:12px;font-weight:700;color:#fff;">3</td>
-                        <td style="padding-left:12px;font-size:14px;color:rgba(255,255,255,0.8);line-height:1.5;">Agenda las fechas: <strong style="color:#fff;">11 y 12 de Abril 2026</strong> en Bogotá.</td>
+                        <td style="padding-left:12px;font-size:14px;color:rgba(255,255,255,0.8);line-height:1.5;">Agenda la fecha: <strong style="color:#fff;">18 de Octubre 2026</strong> en Bogotá.</td>
                       </tr>
                     </table>
                   </td>
@@ -147,7 +147,7 @@ exports.handler = async (event) => {
           <!-- Footer -->
           <tr>
             <td style="padding:20px 40px;border-top:1px solid rgba(255,255,255,0.06);text-align:center;">
-              <p style="margin:0 0 4px;font-size:12px;color:rgba(255,255,255,0.3);">© 2026 Laura Cortes · El Futuro Es Ahora</p>
+              <p style="margin:0 0 4px;font-size:12px;color:rgba(255,255,255,0.3);">© 2026 Laura Cortes · Código del Futuro</p>
               <p style="margin:0;font-size:11px;color:rgba(255,255,255,0.2);">lauramcortes.com</p>
             </td>
           </tr>
@@ -160,9 +160,9 @@ exports.handler = async (event) => {
 </html>`;
 
   const payload = JSON.stringify({
-    from: 'El Futuro Es Ahora <noreply@lauramcortes.com>',
+    from: 'Código del Futuro <noreply@lauramcortes.com>',
     to: [email],
-    subject: '🎟 ¡Tu boleta está confirmada! — El Futuro Es Ahora · Bogotá 2026',
+    subject: '🎟 ¡Tu entrada está confirmada! — Código del Futuro · Bogotá 2026',
     html: htmlBody
   });
 
