@@ -133,7 +133,7 @@ exports.handler = async (event) => {
               <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:24px;">
                 <tr>
                   <td align="center">
-                    <a href="https://wa.link/etlgch" style="display:inline-block;background:#25D366;color:#fff;font-size:14px;font-weight:700;text-decoration:none;padding:14px 32px;border-radius:50px;letter-spacing:0.06em;text-transform:uppercase;">
+                    <a href="https://wa.link/i3mwne" style="display:inline-block;background:#25D366;color:#fff;font-size:14px;font-weight:700;text-decoration:none;padding:14px 32px;border-radius:50px;letter-spacing:0.06em;text-transform:uppercase;">
                       📲 Unirse al grupo de WhatsApp
                     </a>
                   </td>
