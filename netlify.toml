@@ -23,3 +23,14 @@
   from = "/api/create-preference"
   to   = "/.netlify/functions/create-preference"
   status = 200
+
+# VUELO 40 versión México: mismo archivo, el juego detecta /vuelo40/mx
+[[redirects]]
+  from   = "/vuelo40/mx"
+  to     = "/vuelo40/index.html"
+  status = 200
+
+[[redirects]]
+  from   = "/vuelo40/mx/"
+  to     = "/vuelo40/index.html"
+  status = 200
